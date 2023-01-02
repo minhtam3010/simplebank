@@ -19,6 +19,11 @@ migratedown:
 sqlc:
 	sqlc generate
 
+commit:
+	git add .
+	git commit -m "automatically commit"
+	git push origin main 
+
 test:
 	go test -v -cover ./...
 
