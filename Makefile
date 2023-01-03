@@ -16,6 +16,9 @@ migrateup:
 migratedown:
 	migrate -path db/migration -database "postgresql://root:quynhnhu2010@localhost:5432/simple_bank?sslmode=disable" -verbose down
 
+migratemyup:
+	migrate -path db/migration -database "mysql://root:quynhnhu2010@localhost:3306/simple_bank?sslmode=disable" -verbose up
+
 sqlc:
 	sqlc generate
 
@@ -27,4 +30,7 @@ commit:
 test:
 	go test -v -cover ./...
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc
+server:
+	go run main.go
+
+.PHONY: postgres createdb dropdb migrateup migratedown sqlc server
