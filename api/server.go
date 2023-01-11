@@ -7,11 +7,11 @@ import (
 )
 
 type Server struct {
-	store  *db.Store
+	store  db.Store
 	router *gin.Engine
 }
 
-func NewServer(store *db.Store) *Server {
+func NewServer(store db.Store) *Server {
 	server := &Server{store: store}
 	router := gin.Default()
 
@@ -20,7 +20,7 @@ func NewServer(store *db.Store) *Server {
 	router.GET("/account/:id", handler.GetAccount)
 	router.GET("/account", handler.ListAccount)
 
-	router.POST("/accounts", handler.CreateAccount)
+	router.POST("/account", handler.CreateAccount)
 
 	router.PUT("/account", handler.UpdateAccount)
 

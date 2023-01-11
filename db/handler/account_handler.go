@@ -15,10 +15,10 @@ type createAccountRequest struct {
 }
 
 type AccountHandler struct {
-	store *db.Store
+	store db.Store
 }
 
-func NewAccountHandler(store *db.Store) *AccountHandler {
+func NewAccountHandler(store db.Store) *AccountHandler {
 	return &AccountHandler{store: store}
 }
 
